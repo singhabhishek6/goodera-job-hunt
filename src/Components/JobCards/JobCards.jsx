@@ -1,39 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export const JobCards = () => {
+export const JobCards = ({jobs}) => {
     return (
         <JobCardStyled>
-            <div className='card'>
-                <div className="wrapper">
-                    <img src="https://via.placeholder.com/150C/O https://placeholder.com/" alt="" />
-                <div className="job-details">
-                    <p>Executive Producer</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, voluptatem autem quia ipsum corrupti amet neque quasi tempora quaerat!</p>
-                    <div className="btn">View Details</div>
+          {
+              jobs.map(el=>{
+                  return  <>
+                    <div className='card'>
+                    <div className="wrapper">
+                        <img src={el.image} alt="" />
+                    <div className="job-details">
+                        <p>{el.title}</p>
+                        <p>{el.description}</p>
+                        <div className="btn">View Details</div>
+                    </div>
+                    </div>
                 </div>
-                </div>
-            </div>
-            <div className='card'>
-                <div className="wrapper">
-                    <img src="https://via.placeholder.com/150C/O https://placeholder.com/" alt="" />
-                <div className="job-details">
-                    <p>Executive Producer</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, voluptatem autem quia ipsum corrupti amet neque quasi tempora quaerat!</p>
-                    <div className="btn">View Details</div>
-                </div>
-                </div>
-            </div>
-            <div className='card'>
-                <div className="wrapper">
-                    <img src="https://via.placeholder.com/150C/O https://placeholder.com/" alt="" />
-                <div className="job-details">
-                    <p>Executive Producer</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, voluptatem autem quia ipsum corrupti amet neque quasi tempora quaerat!</p>
-                    <div className="btn">View Details</div>
-                </div>
-                </div>
-            </div>
+                </>
+                  
+                
+              })
+          }
+           
         </JobCardStyled>
     )
 }
@@ -79,17 +68,16 @@ background: #C4C4C4;
 border-radius: 16px;
 }
 .job-details{
-
+height: 150px;
+/* overflow-y: hidden; */
     & p:first-of-type{
-        width: 229px;
-height: 36px;
-left: 345px;
-top: 478px;
+      
+
 margin: 0;
 font-family: Poppins;
 font-style: normal;
 font-weight: 500;
-font-size: 24px;
+font-size: 22px;
 line-height: 36px;
 /* identical to box height */
 
@@ -97,8 +85,7 @@ line-height: 36px;
 color: #000000;
     }
     & p:last-of-type{
-        width: 336px;
-height: 63px;
+       
 left: 346px;
 top: 517px;
 margin: 0;

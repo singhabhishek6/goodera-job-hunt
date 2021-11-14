@@ -2,8 +2,17 @@ import React from "react";
 import { JobCards } from "../JobCards/JobCards";
 import { HeroSectionStyled } from "./HeroSectionStyle";
 import { Navbar } from "./Navbar";
-
+import {useState,useEffect} from "react"
+import axios from "axios"
 export const HeroSection = () => {
+
+  const [jobs,setJobs] = useState([])
+  useEffect(()=>{
+    axios("http://localhost:1234/jobs").then(res=>{
+      console.log(res)
+      setJobs(res.data)
+    })
+  },[])
   return (
     <HeroSectionStyled>
       <div className="hero">
@@ -64,7 +73,7 @@ export const HeroSection = () => {
           </span>
           <button>Search</button>
         </div>
-        <JobCards />
+        <JobCards jobs={jobs} />
       </div>
     </HeroSectionStyled>
   );
