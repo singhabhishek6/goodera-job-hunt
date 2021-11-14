@@ -1,7 +1,8 @@
 const express = require("express")
 const data= require("./data")
 const app = express()
-
+const cors = require("cors")
+app.use(cors())
 app.get("/jobs",async (req,res)=>{
     return  res.status(200).send(data)
 })
@@ -31,6 +32,11 @@ app.get("/jobss",async (req,res)=>{
        console.log(city);
     data.forEach(element => {
         let savedCity = element.location.trim().split(",").map(r=> r.trim())
+        let x=0
+        city.forEach(el=>{
+            if(savedCity.includes(el)) x++
+        })
+        if(x==2) result.push(element)
     });
     return  res.status(200).send(result)
    }
