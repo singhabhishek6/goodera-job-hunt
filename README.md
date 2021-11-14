@@ -1,4 +1,4 @@
-- Clone my repository (`git clone https://github.com/singhabhishek6/goodera-job-hunt.git`)
+- Clone my repository (`https://github.com/singhabhishek6/goodera-job-hunt.git`)
 - Install packages (`npm install`)
 - Run the app (`npm start / yarn start`) - to run react app
 - cd to backend in another terminal
